@@ -120,4 +120,8 @@ user.is_admin is set to `false` by default
      }
     ```
 
-+ DELETE  `job_applicants/:id`    ==> DELETE job application user how created the job application   **only** can remove it    
++ DELETE  `job_applicants/:id`    ==> DELETE job application user how created the job application   **only**    can remove it    
+
+
+## deployment 
+
