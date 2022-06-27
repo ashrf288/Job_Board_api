@@ -28,17 +28,25 @@ class JobsController < ApplicationController
   end 
   
   def update
+    if !current_user.is_admin
+      render json: {error: "You are not authorized to modify a job"}, status: :unauthorized
+    else
     @job = Job.find(params[:id])
     @job.update(
         title: params[:title] || @job.title,
         description: params[:description] || @job.description,
     )
     render json: @job
+    end
   end 
   
     def destroy
+      if !current_user.is_admin
+        render json: {error: "You are not authorized to delete a job"}, status: :unauthorized
+      else
       @job = Job.find(params[:id])
       @job.destroy
       render json: {msg: "deleted successfully", data:@job }
   end
+end
   end

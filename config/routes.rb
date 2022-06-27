@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :job_applicants
   get '/current_user', to: 'current_user#index'
 
   devise_for :users, path: '', path_names: {
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   }
   
   resources :jobs
+  get '/applicants_by_job/:id', to: 'job_applicants#showByJobID'
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
