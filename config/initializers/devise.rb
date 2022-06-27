@@ -317,7 +317,9 @@ end
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-  # This also configures session_options for use below
+
+
+#   # This also configures session_options for use below
 config.session_store :cookie_store, key: '_interslice_session',
 
 # Required for all session management (regardless of session_store)
