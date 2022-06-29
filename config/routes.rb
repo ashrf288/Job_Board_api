@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  # root "articles#index"
   resources :job_applicants
   get '/current_user', to: 'current_user#index'
 
@@ -16,8 +20,5 @@ Rails.application.routes.draw do
   get '/applicants_by_job/:id', to: 'job_applicants#showByJobID'
 
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

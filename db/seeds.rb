@@ -7,9 +7,21 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
+admin=User.create(email: 'admin@admin.com' , password: 'admin123', is_admin: true)
+user=User.create(email: 'user@user.com' ,password: 'user123')
+user2=User.create(email: 'user2@user.com' ,password: 'user123')
+user3=User.create(email: 'user3@user.com', password: 'user123')
 
 
+job=Job.create({title: "Software Engineer", description: "full stack web dev with 3 years of expierence",user_id:1})
+job2=Job.create({title: "Back End Dev", description: "I am aBack End Dev dev with 3 years of expierence",user_id:1})
+job3=Job.create({title: "Front End Dev ", description: "I am a Front End Devdev with 3 years of expierence",user_id:1})
 
-job1=Job.create([{title: "Software Engineer", description: "I am a software engineer who is looking for a job in the San Francisco area.",user_id:1}])
-job1=Job.create([{title: "Software Engineer2", description: "I am a software engineer who is looking for a job in the San Francisco area."}])
-job1=Job.create([{title: "Software Engineer3", description: "I am a software engineer who is looking for a job in the San Francisco area."}])
+applicant=JobApplicant.create([{user_id:4, job_id:1}])      
+applicant2=JobApplicant.create([{user_id:2, job_id:1}])      
+applicant3=JobApplicant.create([{user_id:3, job_id:1}])      
+applicant3=JobApplicant.create([{user_id:4, job_id:2}])      
+applicant3=JobApplicant.create([{user_id:3, job_id:2}])      
+applicant3=JobApplicant.create([{user_id:2, job_id:3}])      
+applicant3=JobApplicant.create([{user_id:3, job_id:3}])      
+
