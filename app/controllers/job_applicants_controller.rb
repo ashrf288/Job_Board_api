@@ -1,37 +1,28 @@
 class JobApplicantsController < ApplicationController
   before_action :set_job_applicant, only: %i[ show update destroy ]
   before_action :authenticate_user!
+  load_and_authorize_resource 
 
   # GET /job_applicants
   def index
-    if current_user.is_admin
-    @job_applicants = JobApplicant.all
-
+    authorize! :read, @job_applicants
     render json: @job_applicants
-    else
-      render json: { error: 'You are not authorized to view this data' }, status: :unauthorized
-    end
   end
 
   # GET /job_applicants/1
   def show
-    if current_user.is_admin
     @job_applicant.status="Seen"
+    authorize! :show, @job_applicant
     render json: @job_applicant
-    else
-      render json: { error: "You are not authorized to view this page" }, status: :unauthorized
-    end
+
   end
 
 
-# GET /job_applicants_byJobID/1
+# GET /applicants_by_job/1
   def showByJobID
-    if current_user.is_admin
    @jobs=JobApplicant.where(job_id: params[:id])
+   authorize! :show, @jobs
     render json: @jobs
-    else
-      render json: { error: "You are not authorized to view this page" }, status: :unauthorized
-      end
   end
 
   # POST /job_applicants

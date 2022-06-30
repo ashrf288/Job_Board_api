@@ -1,12 +1,13 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource
     def index
-      @jobs = Job.all 
+      authorize! :read, @jobs 
       render json: @jobs
     end 
   
     def show
-      @job = Job.find(params[:id])
+      authorize! :read, @job
       render json: @job
   end
   def create
