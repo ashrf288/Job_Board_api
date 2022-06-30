@@ -8,13 +8,12 @@ class Ability
     #
     
     
-     
+     can :read, Job
     if user.is_admin
       can :read, :all 
       can  [:create ,:update,:destroy], Job ,user_id: user.id
     else
       can [:create ,:update,:destroy], JobApplicant , user_id: user.id 
-      can :read , Job
 
     end
     

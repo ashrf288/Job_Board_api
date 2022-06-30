@@ -5,7 +5,7 @@ class JobApplicantsController < ApplicationController
 
   # GET /job_applicants
   def index
-    authorize! :read, @job_applicants
+    authorize! :read, @job_applicants 
     render json: @job_applicants
   end
 
